@@ -1,4 +1,4 @@
-def call {string giturl,string github token}
+def call {string giturl,string ssh key}
 pipeline {
     agent { label "slave-1" }
 
@@ -11,7 +11,7 @@ pipeline {
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
                         url: giturl,
-                        credentialsId: 'github token'
+                        credentialsId: 'ssh key'
                     ]]
                 ])
             }
